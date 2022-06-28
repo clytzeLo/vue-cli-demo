@@ -36,8 +36,8 @@
     },
     output: {
       path: path.resolve(__dirname, '../dist/main.js'),
-      filename: 'js/[name].[hash:8].js',
-      chunkFilename: 'js/[name].[hash:8].js',
+      filename: 'js/[name].[contenthash:8].js',
+      chunkFilename: 'js/[name].[contenthash:8].js',
       publicPath: './'
     }
   }
@@ -47,6 +47,10 @@
 "serve": "webpack ./src/main.js --config ./build/webpack.config.js"
 ```
 ## 2.2 配置 ES6/7/8 转 ES5代码
+
+```
+npm install babel-loader @babel/core @babel/preset-env
+```
 
 ```
 module: {
@@ -73,9 +77,17 @@ module.exports = {
 ```
 - babel-loader 只会转语法，对api不会
 
+```
+npm install @babel/polyfill
+```
+
 ## 2.2.1 ES6/7/8 Api 转es5
 
 ## 2.2.2 按需引入polyfill
+
+```
+npm install core-js@2 @babel/runtime-corejs2 -S
+```
 
 修改babel.config.js
 
@@ -87,4 +99,10 @@ module.exports = {
     }]
   ]
 }
+```
+
+## 2.2.3 配置scss转css
+
+```
+npm install sass-loader dart-sass css-loader style-loader -D
 ```

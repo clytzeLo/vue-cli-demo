@@ -71,3 +71,20 @@ module.exports = {
   ]
 }
 ```
+- babel-loader 只会转语法，对api不会
+
+## 2.2.1 ES6/7/8 Api 转es5
+
+## 2.2.2 按需引入polyfill
+
+修改babel.config.js
+
+```
+module.exports = {
+  presets: [
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage"
+    }]
+  ]
+}
+```

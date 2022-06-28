@@ -160,5 +160,17 @@ module.exports = {
     autoprefixer: {}
   }
 }
+```
 
+## 2.4 使用 html-webpack-plugin来创建html页面
+
+```
+npm install html-webpack-plugin -D
+```
+```
+plugins: [
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, '../public/index.html')
+  })
+]
 ```

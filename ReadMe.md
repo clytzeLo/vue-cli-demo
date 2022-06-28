@@ -174,3 +174,18 @@ plugins: [
   })
 ]
 ```
+
+## 2.5 配置 devServer 热更新功能
+
+```
+npm install webpack-dev-server -D
+```
+
+```
+devServer: {
+    hot: true,
+    port: 3000,
+    contentBase: './dist'
+  },
+```
+

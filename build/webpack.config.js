@@ -11,6 +11,11 @@ module.exports = {
     chunkFilename: 'js/[name].[contenthash:8].js',
     publicPath: './'
   },
+  devServer: {
+    hot: true,
+    port: 3000,
+    contentBase: './dist'
+  },
   module: {
     rules: [
       {

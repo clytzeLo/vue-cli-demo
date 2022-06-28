@@ -36,6 +36,9 @@ module.exports = {
             options: {
               implementation: require('dart-sass')
             }
+          },
+          {
+            loader: 'postcss-loader'
           }
         ]
       }

@@ -106,3 +106,59 @@ module.exports = {
 ```
 npm install sass-loader dart-sass css-loader style-loader -D
 ```
+```
+module: {
+  rules: [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader'
+        }
+      ]
+    },
+    {
+      test: /\.(scss|sass)$/,
+      use: [
+        {
+          loader: 'style-loader'
+        },
+        {
+          loader: 'css-loader'
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            implementation: require('dart-sass')
+          }
+        },
+        {
+          loader: 'postcss-loader'
+        }
+      ]
+    }
+  ]
+}
+```
+
+## 2.3
+
+```
+npm install postcss-loader autoprefixer -D
+```
+```
+{
+  loader: 'postcss-loader'
+}
+```
+项目更目录新建 postcss.config.js
+```
+// postcss.config.js
+module.exports = {
+  plugins: {
+    autoprefixer: {}
+  }
+}
+
+```

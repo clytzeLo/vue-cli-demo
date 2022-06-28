@@ -46,3 +46,28 @@
 ```
 "serve": "webpack ./src/main.js --config ./build/webpack.config.js"
 ```
+## 2.2 配置 ES6/7/8 转 ES5代码
+
+```
+module: {
+  rules: [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader'
+        }
+      ]
+    }
+  ]
+}
+```
+在根目录添加babel.config.js
+```
+module.exports = {
+  presets: [
+    "@babel/preset-env"
+  ]
+}
+```

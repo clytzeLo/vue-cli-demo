@@ -183,9 +183,76 @@ npm install webpack-dev-server -D
 
 ```
 devServer: {
-    hot: true,
-    port: 3000,
-    contentBase: './dist'
-  },
+  hot: true,
+  port: 3000,
+  contentBase: './dist'
+},
+```
+
+## 2.6 配置 webpack 打包 图片、媒体、字体等文件
+
+```
+npm install file-loader url-loader -D
+```
+
+```
+{
+  test: /\.(jpe?g|png|gif)$/i,
+  use: [
+    {
+      loader: 'url-loader',
+      options: {
+        limit: 4096,
+        fallback: {
+          loader: 'file-loader',
+          options: {
+              name: 'img/[name].[hash:8].[ext]'
+          }
+        }
+      }
+    }
+  ]
+},
+{
+  test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+  use: [
+    {
+      loader: 'url-loader',
+      options: {
+        limit: 4096,
+        fallback: {
+          loader: 'file-loader',
+          options: {
+            name: 'media/[name].[hash:8].[ext]'
+          }
+        }
+      }
+    }
+  ]
+},
+{
+  test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+  use: [
+    {
+      loader: 'url-loader',
+      options: {
+        limit: 4096,
+        fallback: {
+          loader: 'file-loader',
+          options: {
+            name: 'fonts/[name].[hash:8].[ext]'
+          }
+        }
+      }
+    }
+  ]
+},
+
+```
+
+## 2.7 
+
+```
+ npm install vue-loader vue-template-compiler cache-loader thread-loader -D
 ```
 

@@ -136,6 +136,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html')
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        VUE_APP_BASE_URL: JSON.stringify('http:localhost: 5000')
+      }
+    })
   ]
 }
